@@ -28,8 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Setup Instructions
 1. Clone repository
-   #### git clone https://github.com/Nourhaan/shopping-center.git
-   #### cd shopping-center
+   - git clone https://github.com/Nourhaan/shopping-center.git
+   - cd shopping-center
 
 2. Install dependencies
    npm install
@@ -41,10 +41,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
    ng build
 
 5. Run tests
-   ### Unit tests
+   ##### Unit tests
    ng test
 
-   ### End-to-End tests
+   ##### End-to-End tests
    ng e2e
 
 
