@@ -120,7 +120,6 @@ export class ProductsListComponent extends UnsubscribeDirective implements OnIni
   openFilterDrawer() {
     // @ts-ignore
     const bsOffcanvas = new bootstrap.Offcanvas(this.filterOffCanvas);
-    console.log(bsOffcanvas)
     bsOffcanvas.show();
   }
 

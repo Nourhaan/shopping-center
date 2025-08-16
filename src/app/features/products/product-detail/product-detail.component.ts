@@ -25,7 +25,6 @@ export class ProductDetailComponent extends UnsubscribeDirective implements OnIn
   getProductDetail() {
     this.apiService.getProductDetail(this.route.snapshot.params['id']).pipe(takeUntil(this.destroy$)).subscribe(
       (product: Product) => {
-        console.log(product)
         this.product = product;
       }
     );

@@ -6,6 +6,6 @@ export const ProductDetailResolver: ResolveFn<boolean> = (
   state: RouterStateSnapshot
 ) => {
   //  the logic to be checked before navigation to product details screen
-  console.log('check in resolver');
+  console.log('resolver');
   return true;
 };
