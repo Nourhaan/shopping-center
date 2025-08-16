@@ -1,0 +1,62 @@
+<nav
+  [dir]="translate.currentLang == 'en' ? 'ltr' : 'rtl'"
+  class="navbar navbar-expand-lg navbar-light bg-light
+align-items-md-start align-items-center align-content-md-between p-4 row mx-0">
+  <mat-icon class="d-block d-md-none p-0" data-bs-toggle="offcanvas" aria-controls="menuDrawer"
+            data-bs-target="#menuDrawer">menu
+  </mat-icon>
+  <ul class="navbar-nav col d-none d-md-flex">
+    <ng-container [ngTemplateOutlet]="navItems"></ng-container>
+  </ul>
+  <button class="btn btn-outline-success col-auto" (click)="switchLang()">
+    {{ 'language' | translate }}
+  </button>
+</nav>
+
+<aside>
+  <div tabindex='-1' id='menuDrawer'
+       aria-labelledby='menuDrawer'
+       data-bs-keyboard="false"
+       data-bs-backdrop="true"
+       class='offcanvas h-100 w-30 offcanvas-end'>
+    <div class='offcanvas-header p-3 borderBottomGray200 justify-content-between'>
+      <p class='fontSize24 gray900Color fontFamilyRegular-New mb-0'>Menu</p>
+      <button type='button' class='btn bg-transparent p-0' data-bs-dismiss='offcanvas' aria-label='Close'>
+        <mat-icon class="p-0">close</mat-icon>
+      </button>
+    </div>
+    <div class='offcanvas-body px-3'>
+      <ul class="navbar-nav col">
+        <ng-container [ngTemplateOutlet]="navItems"></ng-container>
+      </ul>
+    </div>
+  </div>
+</aside>
+
+<ng-template #navItems>
+  <li class="nav-item pointer-cursor"
+      *ngFor="let navItem of mainNavItems; trackBy:sharedService.trackByIndex">
+    <a routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       [routerLink]="navItem"
+       class="nav-link" (click)="closeMenu()">{{ navItem | translate}}</a>
+  </li>
+  <li class="nav-item dropdown" [ngClass]="{'active': router.url.includes('category')}">
+    <a #categoriesElem
+       class="nav-link dropdown-toggle"
+       id="navbarDropdown"
+       role="button"
+       (click)="$event.stopPropagation(); toggleDropdown()"
+       [attr.aria-expanded]="categoriesDropDownOpen"
+    >
+      {{ 'categories' | translate }}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" [class.show]="categoriesDropDownOpen">
+      <li class="pointer-cursor"
+          *ngFor="let category of categories | async; trackBy:sharedService.trackByIndex"
+      ><a
+        class="dropdown-item"
+        (click)="navigateToCategory(category)">{{ category }}</a></li>
+    </ul>
+  </li>
+</ng-template>

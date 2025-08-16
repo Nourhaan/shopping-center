@@ -1,0 +1,71 @@
+.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #1976d2;
+  color: white;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 32px;
+}
+
+.app-title {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Sidebar styles */
+.sidebar {
+  z-index: 22;
+  position: fixed;
+  top: 0;
+  left: -250px; /* hidden by default */
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  padding: 1rem;
+}
+
+.sidebar.open {
+  left: 0; /* visible when open */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 0;
+  padding: 1rem;
+  transition: margin-left 0.3s ease;
+}
+
+/* Shift content when sidebar is open (optional) */
+.sidebar.open ~ .main-content {
+  margin-left: 250px;
+}
+

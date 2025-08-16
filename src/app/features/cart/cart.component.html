@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+  <div class="col-md-11 col-12 row justify-content-center gap-4">
+    <ng-container *ngIf="productsValue?.length; else emptyCart"></ng-container>
+    <div class="col-md-5 col-12 card p-3" *ngFor="let product of products$ | async as products">
+      <div class="row justify-content-end align-items-start flex-wrap-reverse">
+        <div>
+          <img width="300px" height="270px" class="mb-3" [src]="product?.image" alt="Card image cap">
+          <h5 class="card-title">{{ product?.title }}</h5>
+        </div>
+        <button class="btn col-auto" (click)="onRemoveProduct(product)">
+          <mat-icon class="p-0">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <h4 class="px-0">{{ 'emptyCart' | translate }}</h4>
+  <button class="btn btn-outline-dark w-50" [routerLink]="'../products'">
+    {{ 'shopNow' | translate }}
+  </button>
+</ng-template>
+

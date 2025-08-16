@@ -1,0 +1,8 @@
+<div class="product-detail-container">
+  <app-product-card *ngIf="product; else skeleton" [product]="product"></app-product-card>
+</div>
+
+
+<ng-template #skeleton>
+  <app-skeleton></app-skeleton>
+</ng-template>

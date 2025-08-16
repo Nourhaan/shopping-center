@@ -1,0 +1,16 @@
+$sm: 768px;
+
+@mixin truncateMultiLine($lineClampValue) {
+  -webkit-line-clamp: $lineClampValue;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+
+
+@mixin sm {
+  @media (max-width: $sm) {
+    @content;
+  }
+}

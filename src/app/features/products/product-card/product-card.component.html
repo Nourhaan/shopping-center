@@ -1,0 +1,30 @@
+<div class="d-flex flex-column gap-3 align-items-end justify-content-between h-100">
+  <div class="w-100">
+    <div class="flexBetween gap-3">
+      <img class="card-img-top mb-3" [ngClass]="{'product-item-img':isProductList, 'product-img':!isProductList}"
+           [src]="product?.image" alt="Card image cap">
+      <mat-icon (click)="removeFromFav(product)" *ngIf="favItems.includes(product?.id??0)" class="pointer-cursor">
+        favorite
+      </mat-icon>
+      <mat-icon (click)="addToFav(product)" *ngIf="!favItems.includes(product?.id??0)" class="pointer-cursor">
+        favorite_border
+      </mat-icon>
+    </div>
+    <div class="flexBetween col-md-6 col-12" *ngIf="!isProductList">
+      <p class="fw-semibold">{{ product?.category }}</p>
+      <p class="mb-0"><span class="fw-semibold">rate: </span>{{ product?.rating?.rate }} | <span class="fw-semibold"> count: </span>{{ product?.rating?.count }}
+      </p>
+      <p><span class="fw-semibold">price:</span> <span>{{ product?.price }}$</span></p>
+    </div>
+    <h5 class="card-title" [ngClass]="{'textClamp1':isProductList}">{{ product?.title }}</h5>
+    <p class="card-text" [ngClass]="{'textClamp2':isProductList}">{{ product?.description }}</p>
+  </div>
+  <div class="d-flex gap-3">
+    <a *ngIf="isProductList"
+       (click)="navigateToProductDetails(product?.id?.toString())"
+       class="btn btn-outline-dark">{{ 'view' | translate }}</a>
+    <a *ngIf="!isProductList" class="btn btn-outline-dark" (click)="backToPreviousPage()">{{ 'back' |translate }}</a>
+    <button class="btn btn-dark" (click)="onAddToCart()">{{ 'addToCart' | translate }}</button>
+  </div>
+</div>
+

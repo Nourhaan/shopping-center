@@ -1,0 +1,62 @@
+<aside>
+  <div tabindex='-1' id='filterDrawer' aria-labelledby='filterDrawer' data-bs-keyboard="false"
+       class='offcanvas h-100 w-30 offcanvas-end'>
+    <mat-drawer-container [hasBackdrop]='true'>
+      <mat-drawer-content>
+        <div class='offcanvas-header p-3 borderBottomGray200 justify-content-between'>
+          <p class="mb-0">filter</p>
+          <button type='button' class='btn bg-transparent p-0' data-bs-dismiss='offcanvas' aria-label='Close'>
+            <mat-icon class="p-0">close</mat-icon>
+          </button>
+        </div>
+        <!--  Start Main Container-->
+        <div class="offcanvas-body px-0 py-3 filterContainer">
+          <form [formGroup]="filterForm">
+            <!-- Start Categories Section -->
+            <section class="section-container">
+              <h6>{{ 'categories' | translate }}</h6>
+              <ng-container *ngIf="categories?.length">
+                <mat-checkbox *ngFor='let category of categories; let i =index;let last=last;'
+                              [ngClass]='{" me-2": !last}'
+                              [value]='category'
+                              (change)="onCategoryChange( $event.checked,i)">{{ category?.title }}
+                </mat-checkbox>
+              </ng-container>
+            </section>
+            <!--  End Categories Section -->
+
+            <!--  Start Sort By Section-->
+            <section class="section-container">
+              <h6>{{'sortBy' | translate}}</h6>
+              <mat-radio-group class="d-flex flex-column" formControlName="sortBy">
+                <mat-radio-button value="PRICE">{{ 'price' | translate }}</mat-radio-button>
+                <mat-radio-button value="TITLE">{{ 'title' | translate }}</mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <!--  End Sort By Section-->
+
+            <!--  Start Sort Type Section-->
+            <section class="section-container">
+              <h6>{{ 'sortType' | translate }}</h6>
+              <mat-radio-group class="d-flex flex-column" formControlName="sortType">
+                <mat-radio-button [disabled]="!filterForm.controls.sortBy.value" value="ASC">{{ 'ascending' | translate }}
+                </mat-radio-button>
+                <mat-radio-button [disabled]="!filterForm.controls.sortBy.value" value="DESC">{{ 'descending' | translate }}
+                </mat-radio-button>
+              </mat-radio-group>
+            </section>
+            <!--  End Sort By Section-->
+          </form>
+          <div class="row gap-3 mx-0 px-3 borderTopGray200 pt-3">
+            <button class="btn btn-outline-dark col-auto" (click)="clearFilter()">{{'clear' | translate}}</button>
+            <button class="btn btn-dark col"
+                    data-bs-dismiss='offcanvas' aria-label='Close'
+                    (click)="applyFilter()">{{'applyFilter' | translate}}
+            </button>
+          </div>
+        </div>
+        <!--  End Main Container-->
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</aside>

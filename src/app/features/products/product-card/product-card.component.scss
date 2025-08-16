@@ -1,0 +1,28 @@
+@import "../../../../scss/utils/mixins";
+
+.product-item-img {
+  width: 250px;
+  height: 250px;
+}
+
+.product-img {
+  width: 300px;
+}
+
+.border-none {
+  border: none;
+}
+
+.textClamp2 {
+  @include truncateMultiLine(2);
+}
+
+.textClamp1 {
+  @include truncateMultiLine(1);
+}
+
+
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+}

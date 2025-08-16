@@ -1,0 +1,38 @@
+<div class="row gap-4 justify-content-center px-md-0 px-3">
+  <div class="col-md-11 col-12">
+    <div class="form-group d-flex gap-3 align-items-center mb-4">
+      <mat-form-field appearance="outline" class=" w-100">
+        <mat-icon class="pointer-cursor" matSuffix *ngIf="searchField?.value?.length"
+                  (click)="searchField.setValue('')">close
+        </mat-icon>
+        <mat-label>{{'search' | translate}}</mat-label>
+        <input [formControl]="searchField" matInput placeholder="{{'search' | translate}}" class="form-control py-1">
+      </mat-form-field>
+      <button *ngIf="!activeCategory" class="bg-transparent border-0" (click)="openFilterDrawer()">
+        <mat-icon>filter_list</mat-icon>
+      </button>
+    </div>
+    <div class="row gap-4 justify-content-center"
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="300"
+         (scrolled)="onScroll()"
+         *ngIf="products?.length; else skeleton">
+      <div class="card col-md-5 col-12 p-3"
+           *ngFor="let product of products; trackBy:trackById">
+        <app-product-card [product]="product" [isProductList]="true"></app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-products-filter (onFilterChange)="filterProducts($event)"></app-products-filter>
+
+<ng-template #skeleton>
+  <div class="row gap-4 justify-content-center">
+    <div *ngFor="let i of [1,2,3,4]; trackBy: sharedService.trackByIndex " class="card col-md-5 col-12 p-3">
+      <app-skeleton [isList]="true"></app-skeleton>
+    </div>
+  </div>
+</ng-template>
