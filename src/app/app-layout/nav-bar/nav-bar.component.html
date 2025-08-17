@@ -21,7 +21,7 @@ align-items-md-start align-items-center align-content-md-between p-4 row mx-0">
        class='offcanvas h-100 w-30 offcanvas-end'>
     <div class='offcanvas-header p-3 borderBottomGray200 justify-content-between'>
       <p class='fontSize24 gray900Color fontFamilyRegular-New mb-0'>Menu</p>
-      <button type='button' class='btn bg-transparent p-0' data-bs-dismiss='offcanvas' aria-label='Close'>
+      <button #closeMenuBtn type='button' class='btn bg-transparent p-0' data-bs-dismiss='offcanvas' aria-label='Close'>
         <mat-icon class="p-0">close</mat-icon>
       </button>
     </div>
@@ -39,7 +39,7 @@ align-items-md-start align-items-center align-content-md-between p-4 row mx-0">
     <a routerLinkActive="active"
        [routerLinkActiveOptions]="{ exact: true }"
        [routerLink]="navItem"
-       class="nav-link" (click)="closeMenu()">{{ navItem | translate}}</a>
+       class="nav-link" (click)="closeMenuBtn.click()">{{ navItem | translate}}</a>
   </li>
   <li class="nav-item dropdown" [ngClass]="{'active': router.url.includes('category')}">
     <a #categoriesElem
