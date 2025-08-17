@@ -18,6 +18,7 @@ export class NavBarComponent extends UnsubscribeDirective implements OnInit, Aft
   mainNavItems = ['products', 'cart', 'favorites'];
   categories!: Observable<string[]>;
   @ViewChild('sidebar') sidebar!: ElementRef;
+  @ViewChild('closeMenuBtn') closeMenuBtn!: ElementRef;
   @ViewChild('categoriesElem') categoriesElem!: ElementRef;
   menuDrawerCanvas: any;
   categoriesDropDownOpen = false;
@@ -78,13 +79,9 @@ export class NavBarComponent extends UnsubscribeDirective implements OnInit, Aft
   navigateToCategory(category: string) {
     this.router.navigate(['products/category/', category]).then();
     this.categoriesDropDownOpen = false;
-    this.closeMenu();
+    this.closeMenuBtn.nativeElement.click();
   }
 
-  closeMenu() {
-    this.menuDrawerCanvas?.hide();
-    this.sharedService.closeDrawer();
-  }
 
   switchLang() {
     const lang = this.translate.currentLang == 'en' ? 'ar' : 'en';
