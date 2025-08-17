@@ -10,5 +10,14 @@
   "shopNow": "تسوق الآن",
   "emptyCart": "العربة فارغة",
   "search": "بحث",
-  "noProducts": "لا يوجة منتجات"
+  "noProducts": "لا يوجة منتجات",
+  "sortBy":"ترتيب حسب" ,
+  "price": "السعر",
+  "title": "اسم المنتج",
+  "sortType": "نوع الترتيب",
+  "ascending": "من الاقل للأعلي",
+  "descending": "من الأعلي للاقل",
+  "clear": "مسح",
+  "applyFilter": "تطبيق",
+  "filter": "تصفية"
 }

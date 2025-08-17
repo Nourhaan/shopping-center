@@ -10,5 +10,14 @@
   "shoppingNow": "Empty Cart - Shopping Now",
   "emptyCart": "Empty Cart",
   "search": "Search",
-  "noProducts": "No Products added"
+  "noProducts": "No Products added",
+  "sortBy":"Sort By" ,
+  "price": "Price",
+  "title": "Product Name",
+  "sortType": "Sort Type",
+  "ascending": "Low to High",
+  "descending": "High to Low",
+  "clear": "Clear",
+  "applyFilter": "Apply",
+  "filter": "Filter"
 }

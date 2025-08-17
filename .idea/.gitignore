@@ -10,3 +10,4 @@ node_modules/
 dist/
 .angular/cache/
 .environment
+.DS_Store
