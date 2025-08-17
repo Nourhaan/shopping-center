@@ -7,7 +7,7 @@ import {Observable, of, tap} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ProductsService {
   baseUrl = environment.BASE_URL;
 
   constructor(private http: HttpClient, private cache: CacheService) {

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as ProductsActions from '../actions/products.actions';
 import {catchError, map, mergeMap, of, retry, takeUntil} from 'rxjs';
-import {ApiService} from "../../core/services/api.service";
+import {ProductsService} from "../../core/services/products.service";
 import {UnsubscribeDirective} from "../../core/directives/unsubscribe.directive";
 
 @Injectable()
@@ -39,7 +39,7 @@ export class ProductsEffects extends UnsubscribeDirective {
 
   constructor(
     private actions$: Actions,
-    private productsService: ApiService
+    private productsService: ProductsService
   ) {
     super();
   }

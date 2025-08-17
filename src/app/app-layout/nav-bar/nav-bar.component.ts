@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {UnsubscribeDirective} from "../../core/directives/unsubscribe.directive";
-import {ApiService} from "../../core/services/api.service";
-import {Observable, takeUntil} from "rxjs";
+import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {SharedService} from "../../core/services/shared.service";
 import {Dropdown, Offcanvas} from 'bootstrap';
@@ -32,7 +31,7 @@ export class NavBarComponent extends UnsubscribeDirective implements OnInit, Aft
     }
   }
 
-  constructor(private apiService: ApiService,
+  constructor(
               public sharedService: SharedService,
               private el: ElementRef,
               public router: Router,
