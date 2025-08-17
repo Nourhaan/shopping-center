@@ -2,7 +2,7 @@
   <div class="col-md-11 col-12 row justify-content-center gap-4">
     <ng-container *ngIf="productsValue?.length; else emptyFav"></ng-container>
     <div class="col-md-5 col-12 card p-3" *ngFor="let product of products$ | async as products">
-      <div class="d-flex justify-content-between align-items-start">
+      <div class="flexBetween">
         <div>
           <img width="300px" height="270px" class="mb-3" [src]="product?.image" alt="Card image cap">
           <h5 class="card-title">{{ product?.title }}</h5>

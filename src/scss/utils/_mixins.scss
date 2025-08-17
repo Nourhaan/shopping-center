@@ -1,5 +1,12 @@
 $sm: 768px;
 
+@mixin flexProperties($alignItems, $justifyContent, $flexDirection:row) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+}
+
 @mixin truncateMultiLine($lineClampValue) {
   -webkit-line-clamp: $lineClampValue;
   -webkit-box-orient: vertical;

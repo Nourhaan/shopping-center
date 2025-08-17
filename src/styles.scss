@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import '@angular/material/prebuilt-themes/indigo-pink.css'; // for snack bar
+@import "./scss/utils/mixins";
 
 
 .pointer-cursor {
@@ -28,6 +29,12 @@
 .borderBottomGray200 {
   border-bottom: 1px solid #C0C2C1;
 }
+
+
+.flexBetween {
+  @include flexProperties(start, space-between);
+}
+
 
 //General Skeleton style
 .skeletonGeneral {

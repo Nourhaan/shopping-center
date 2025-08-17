@@ -21,8 +21,6 @@
   @include truncateMultiLine(1);
 }
 
-
-.flexBetween {
-  display: flex;
-  justify-content: space-between;
+.flexColBetween{
+  @include flexProperties(end, space-between,column);
 }
